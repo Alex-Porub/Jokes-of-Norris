@@ -1,0 +1,377 @@
+html {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	height: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+main {
+	display: flex;
+	justify-content: space-between;
+	font-family: 'Roboto', sans-serif;
+	overflow-x: hidden;
+	height: 100%;
+}
+
+.leftSide {
+	overflow: auto;
+	display: flex;
+	height: 100%;
+	padding: 20px 3% 3% 4%;
+	position: relative;
+	flex-grow: 1;
+	-webkit-flex-grow: 1;
+	position: relative;
+}
+
+.mainArea {
+	width: 680px;
+}
+
+.darkWafer {
+	display: none;
+}
+
+.favouriteActivation {
+	position: fixed;
+	right: 24px;
+	top: 8px;
+	z-index: 2;
+	align-items: center;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 140%;
+	color: #ABABAB;
+	display: none;
+}
+
+.favouriteActivation_icon {
+	position: relative;
+	width: 32px;
+	height: 32px;
+	margin-right: 5px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.856);
+	padding: 6%;
+}
+
+.favouriteActivation_icon span {
+	position: absolute;
+	width: 60%;
+	height: 7%;
+	background: white;
+	transition: 0.3s;
+	pointer-events: none;
+}
+
+.favouriteActivation_icon .line-1 {
+	top: 35%;
+	left: 20%;
+}
+
+.favouriteActivation_icon .line-2 {
+	bottom: 35%;
+	left: 20%;
+}
+
+.favouriteActivation_icon.active .line-1 {
+	top: 47%;
+	transform: rotate(45deg);
+}
+
+.favouriteActivation_icon.active .line-2 {
+	top: 47%;
+	transform: rotate(-45deg);
+}
+
+.allGettedJokesContainer {
+	width: 100%;
+}
+
+.favouriteJokesArea {
+	width: 480px;
+	min-height: 100%;
+	background: #e4e4e4;
+	padding: 8px;
+	transition: 0.3s;
+	overflow: auto;
+}
+
+.favouriteJokesArea .jokeContainer {
+	background: white;
+	box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.1);
+}
+
+.favouriteJokesArea .joke-text {
+	font-size: 16px;
+}
+
+.favouriteJokesArea .categoryName {
+	letter-spacing: 1.3px;
+}
+
+.favouriteJokesArea .joke-id:before {
+	background-color: #ebebeb;
+}
+
+button {
+	outline: none;
+	cursor: pointer;
+	border-style: none;
+}
+
+.btn-getJoke {
+	width: 152px;
+	height: 42px;
+	background: linear-gradient(92.01deg, #8ea7ff 0%, #5b79e7 100%);
+	border-radius: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+	transition: 0.1s;
+}
+
+.btn-getJoke:hover,
+input[name='textToSearch']:focus+.btn-getJoke {
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.77);
+	box-shadow: 1px 2px 5px -1px rgba(0, 0, 0, 0.55);
+	transform: translate(-1px, -1px);
+}
+
+.btn-getJoke.pressed {
+	box-shadow: none;
+	transform: none;
+}
+
+ul {
+	list-style: none;
+}
+
+input[name='textToSearch'] {
+	font-family: 'Roboto';
+	width: 100%;
+	height: 38px;
+	border: 1px solid #777777;
+	border-radius: 6px;
+	display: none;
+	font-size: 16px;
+	padding-left: 8px;
+	margin-bottom: 20px;
+}
+
+input[name='textToSearch']::placeholder {
+	color: rgba(128, 128, 128, 0.815);
+}
+
+input[name='textToSearch']:focus {
+	outline: none;
+	border-color: #5a5a5a;
+	-webkit-box-shadow: inset 0px 0px 6px 0px rgba(5, 5, 5, 0.5);
+	-moz-box-shadow: inset 0px 0px 6px 0px rgba(5, 5, 5, 0.5);
+	box-shadow: inset 0px 0px 6px 0px rgba(5, 5, 5, 0.5);
+}
+
+input[name='textToSearch']:focus::placeholder {
+	color: transparent;
+}
+
+div.categories {
+	width: 100%;
+}
+
+.categ_list {
+	border-radius: 8px;
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+}
+
+.favouriteJokesArea__title {
+	margin: 2px 0;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 140%;
+	color: #ABABAB;
+}
+
+.categ_list li {
+	margin: 6px 5px;
+	border: 1px solid darkgrey;
+	border-radius: 6px;
+	padding: 3px;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #969696;
+	font-weight: 500;
+	line-height: 133%;
+	letter-spacing: 2px;
+}
+
+.categ_list li.active {
+	background-color: #e2e2e2;
+	color: black;
+	border-color: rgb(150, 150, 150);
+}
+
+.jokeContainer {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	width: 100%;
+	border-radius: 16px;
+	padding: 20px 20px 20px 65px;
+	margin: 12px 0;
+	background: #e4e4e4;
+	border-radius: 20px;
+	box-sizing: border-box;
+	line-height: 140%;
+	overflow: auto;
+}
+
+.jokeContainer.favourite.cloned {
+	position: absolute;
+	margin: 0;
+	z-index: 3;
+	transition: 0.7s;
+	transform-origin: right top;
+}
+
+.iconHeart {
+	display: block;
+	margin: 0 0 0 auto;
+	height: 22px;
+	width: 26px;
+	background-image: url(images/Vector.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right center;
+	cursor: pointer;
+}
+
+.favourite .iconHeart {
+	background-image: url(images/heart-fill.svg);
+}
+
+.joke-id {
+	font-weight: 500;
+	font-size: 11px;
+	position: relative;
+	color: #a0a0a0;
+}
+
+.joke-id a {
+	color: #6582ee;
+}
+
+.joke-id:before {
+	position: absolute;
+	top: 0;
+	left: -50px;
+	border-radius: 50%;
+	content: '';
+	display: block;
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 38px;
+	height: 38px;
+	background-image: url(images/message.svg);
+	background-size: 60%;
+}
+
+p.joke-text {
+	font-size: 18px;
+	line-height: 144%;
+}
+
+.joke-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+span.categoryName {
+	display: inline-block;
+	padding: 3px 5px;
+	border-radius: 4px;
+	background-color: #c0cdffb3;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 140%;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+span.lastUpdate {
+	font-size: 12px;
+	color: #a0a0a0;
+}
+
+@media (max-width: 1024px) {
+
+	.favouriteJokesArea {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 420px;
+		height: 100%;
+	}
+
+	.favouriteActivation {
+		display: flex;
+	}
+
+	.favouriteJokesArea.show {
+		right: 0;
+	}
+
+	.favouriteJokesArea__title {
+		opacity: 0;
+	}
+
+	.darkWafer {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background: black;
+		opacity: 0;
+		display: block;
+		transition: 0.5s;
+		pointer-events: none;
+	}
+
+	.darkWafer.show {
+		opacity: 0.4;
+	}
+
+	.leftSide.frozen {
+		overflow: hidden;
+		pointer-events: none;
+	}
+
+	.leftSide {
+		width: 100%;
+	}
+}
+
+@media (max-width: 420px) {
+	.favouriteJokesArea {
+		width: 100%;
+	}
+
+	.mainArea {
+		width: 100%;
+	}
+
+	.darkWafer {
+		display: none;
+	}
+}
