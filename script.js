@@ -1,7 +1,8 @@
-let containerOfCategories = document.querySelector("div.categories");
-let pathToJoke = "https://api.chucknorris.io/jokes/random";
+const containerOfCategories = document.querySelector("div.categories");
+const pathToJoke = "https://api.chucknorris.io/jokes/random";
 let jokesArr = [];
 let favouriteJokes = localStorage.chucksJokes ? JSON.parse(localStorage.chucksJokes) : [];
+const leftSideContainer = document.querySelector(".leftSide");
 
 favouriteJokesRender();
 
@@ -163,14 +164,13 @@ function favorNotFavor(event) {
     if (jokeCard.classList.contains("favourite")) {
         let cloneJokeCard = jokeCard.cloneNode(true);
         cloneJokeCard.classList.add("cloned");
-        let mainContainer = document.querySelector(".leftSide");
         cloneJokeCard.style.left = jokeCard.offsetLeft + "px";
         cloneJokeCard.style.top = jokeCard.offsetTop + "px";
         cloneJokeCard.style.width = jokeCard.offsetWidth + "px";
-        mainContainer.appendChild(cloneJokeCard);
+        leftSideContainer.appendChild(cloneJokeCard);
 
-        let transX = mainContainer.clientWidth - jokeCard.offsetLeft - jokeCard.offsetWidth + mainContainer.offsetLeft + 25;
-        let transY = jokeCard.offsetTop - mainContainer.scrollTop - 10;
+        let transX = leftSideContainer.clientWidth - jokeCard.offsetLeft - jokeCard.offsetWidth + leftSideContainer.offsetLeft + 25;
+        let transY = jokeCard.offsetTop - leftSideContainer.scrollTop - 10;
 
         setTimeout(() => {
             cloneJokeCard.style.transform = `translate(${transX}px, ${-transY}px) scaleY(0.25) scaleX(0.1)`;
@@ -238,3 +238,20 @@ favActivationIcon.addEventListener("click", function (event) {
     let darkWafer = document.querySelector(".darkWafer");
     darkWafer.classList.toggle("show");
 });
+
+const popupDiscription_container = document.querySelector(".popupDiscription-container");
+const popupDiscription_content = document.querySelector(".popupDiscription-content");
+const mainContent = document.querySelector(".mainContent");
+
+function discriptionUp() {
+    popupDiscription_container.classList.add("popupDiscription-container-active");
+    popupDiscription_container.addEventListener("click", discriptionDown, { once: true });
+    mainContent.classList.add("mainContent-freezed");
+}
+
+function discriptionDown() {
+    popupDiscription_container.classList.remove("popupDiscription-container-active");
+    mainContent.classList.remove("mainContent-freezed");
+}
+
+discriptionUp();

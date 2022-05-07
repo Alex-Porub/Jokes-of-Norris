@@ -12,44 +12,54 @@
 		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
 		rel="stylesheet">
 </head>
-
 <body>
 	<main>
-		<div class="leftSide">
-			<div class="mainArea">
-				<h1>Hey!</h1>
-				<h2>Let’s try to find a joke for you:</h2>
-				<p>
-					<input id="randomInput" name="wayToSearch" type="radio" value="random">
-					<label for="randomInput">Random</label>
-				</p>
-				<p>
-					<input id="fromCategInput" name="wayToSearch" type="radio" value="from categories" checked>
-					<label for="fromCategInput">From categories</label>
-				</p>
-				<div class="categories"></div>
-				<p>
-					<input id="searshInput" name="wayToSearch" type="radio" value="search">
-					<label for="searshInput">Search</label>
-				</p>
-				<p>
-					<input name="textToSearch" placeholder="Free text search...">
-					<button class="btn-getJoke" title="Click here to get jokes">Get a joke</button>
-				</p>
-				<div class="allGettedJokesContainer"></div>
+		<div class="mainContent">
+			<div class="leftSide">
+				<div class="mainArea">
+					<h1>Hey!</h1>
+					<h2>Let’s try to find a joke for you:</h2>
+					<p>
+						<input id="randomInput" name="wayToSearch" type="radio" value="random">
+						<label for="randomInput">Random</label>
+					</p>
+					<p>
+						<input id="fromCategInput" name="wayToSearch" type="radio" value="from categories" checked>
+						<label for="fromCategInput">From categories</label>
+					</p>
+					<div class="categories"></div>
+					<p>
+						<input id="searshInput" name="wayToSearch" type="radio" value="search">
+						<label for="searshInput">Search</label>
+					</p>
+					<p>
+						<input name="textToSearch" placeholder="Free text search...">
+						<button class="btn-getJoke" title="Click here to get jokes">Get a joke</button>
+					</p>
+					<div class="allGettedJokesContainer"></div>
+				</div>
+			</div>
+			<div class="darkWafer"></div>
+			<div class="favouriteJokesArea">
+				<h3 class="favouriteJokesArea__title">Favourite</h3>
+				<div class="favouriteJokesContainer"></div>
+			</div>
+			<div class="favouriteActivation">
+				<button class="favouriteActivation_icon">
+					<span class="line-1"></span>
+					<span class="line-2"></span>
+				</button>
+				Favourite
 			</div>
 		</div>
-		<div class="darkWafer"></div>
-		<div class="favouriteJokesArea">
-			<h3 class="favouriteJokesArea__title">Favourite</h3>
-			<div class="favouriteJokesContainer"></div>
-		</div>
-		<div class="favouriteActivation">
-			<button class="favouriteActivation_icon">
-				<span class="line-1"></span>
-				<span class="line-2"></span>
-			</button>
-			Favourite
+		<div class="popupDiscription-container">
+			<div class="popupDiscription-content">
+				<p>This app uses the API from <strong><a href="https://api.chucknorris.io/">https://api.chucknorris.io/</a></strong>  
+					and generates jokes of Chuck Norris :) . You also can save jokes in "Favourites".					
+				</p>
+				<span>Click anywhere to close</span>
+				<button type="button" class="popupDiscription-content__buttonClose"></button>
+			</div>
 		</div>
 	</main>
 
